@@ -1,2 +1,6 @@
 *.class
 *.log
+
+/scala_tutorial/.idea/**
+/scala_tutorial/project/**
+/scala_tutorial/target/**
