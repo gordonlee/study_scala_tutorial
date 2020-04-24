@@ -76,7 +76,7 @@ scalable language → scala. 2001년 마틴 오더스키가 시작
 - scalap 를 이용하여 class 파일 열어보기
     - 
 
-        ![chapter%201/Untitled%207.png](chapter%201/Untitled%207.png)
+    ![chapter%201/Untitled%207.png](chapter%201/Untitled%207.png)
 
 - object
     - object 로 선언한 객체는 싱글턴(singleton) 객체다. 스칼라는 싱글턴 디자인 패턴을 1급 요소로 받아들였다.
