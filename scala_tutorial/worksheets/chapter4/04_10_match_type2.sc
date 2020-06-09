@@ -14,7 +14,6 @@ for {
   컴파일러는 두 번째 case절을 도달 불가능한 코드로 간주한다.
  */
 
-
 // 타입을 매칭하는 방법 (멋지지 않지만, 컬렉션에 대해 일치시키고 head 원소에 대한 매치를 내포시킨다.)
 
 def doSeqMatch[T](seq: Seq[T]): String = seq match {
