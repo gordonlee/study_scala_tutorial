@@ -1,7 +1,6 @@
 /*
   5.1 암시적 인자
 
-
   참고
     https://www.scala-lang.org/api/current/scala/Predef$.html
     https://docs.scala-lang.org/tutorials/FAQ/context-bounds.html  // context-bound
@@ -11,7 +10,7 @@ def calcTax(amount: Float)(implicit rate: Float): Float = amount * rate
 {
   implicit val currentTaxRate = 0.08F
   // implicit val currentTaxRate2 = 0.1F  // error: ambiguous implicit values
-  val tax = calcTax(5000F)(0.1F)  // 이 메서드를 호출하는 코드에서는 지역 범위에 있는 암시 값을 사용.
+  val tax = calcTax(5000F)  // 이 메서드를 호출하는 코드에서는 지역 범위에 있는 암시 값을 사용.
   println(s"$tax")
 }
 
@@ -28,13 +27,13 @@ case class ComplicatedSalesTaxData(
                                   )
 
 object ComplicatedSalesTax {
-  private def extraTaxRateForSotre(id: Int): Float = {
+  private def extraTaxRateForStore(id: Int): Float = {
     0.0F
   }
 
   implicit def rate(implicit cstd: ComplicatedSalesTaxData): Float = {
     if (cstd.isTaxHoliday) 0.0F
-    else cstd.baseRate + extraTaxRateForSotre(cstd.storeId)
+    else cstd.baseRate + extraTaxRateForStore(cstd.storeId)
   }
 }
 

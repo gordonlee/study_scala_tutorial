@@ -45,6 +45,10 @@ def createMenu(implicit session: Session): Menu = {
   Menu(defaultItems ++ accountItems)
 }
 
+implicit val s: Session = new Session()
+val m = createMenu
+println(m)
+
 /*
   5.2.3 사용 가능한 인스턴스 제한하기
 
@@ -166,7 +170,7 @@ m(List("1", "2", "3"))
  */
 
 case class ListWrapper(list: List[Int])
-// List(1,2,3).map[Int, ListWrapper](_*2)
+List(1,2,3).map[Int, ListWrapper](_*2)
 /*
 Error:(167, 41) Cannot construct a collection of type <<<ListWrapper>>> with elements of type Int based on a collection of type List[Int].
 List(1,2,3).map[Int, ListWrapper](_*2)
@@ -178,7 +182,8 @@ https://scala-lang.org/files/archive/api/2.12.x/scala/collection/generic/CanBuil
 
 /*
   5.2.7 유령 타입
-  필요한 타입이 존재하는 경우 이런 암시적 인스턴스를 모두 없애 버리는 것. 타입은 있는데 인스턴스 정의는 없는 타입을 유령 타입(phantom type) 이라고 부른다
+  필요한 타입이 존재하는 경우 이런 암시적 인스턴스를 모두 없애 버리는 것.
+  타입은 있는데 인스턴스 정의는 없는 타입을 유령 타입(phantom type) 이라고 부른다
   이 기법의 주 기능은 '표식' 역할이다.
 
   //src/main/scala/implicits/phantom-types.scala

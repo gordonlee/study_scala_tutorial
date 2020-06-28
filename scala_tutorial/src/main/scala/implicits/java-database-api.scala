@@ -28,6 +28,14 @@ package implicits {
 
     object JRow {
       def apply(pairs: (String,Any)*) = new JRow(Map(pairs :_*))
+
+      def main() = {
+        val row = javadb.JRow("one" -> 1, "two" -> 2.2, "three" -> "THREE!")
+
+        val oneValue1: Int      = row.getInt("one")
+        val twoValue1: Double   = row.getDouble("two")
+
+      }
     }
   }
 }
