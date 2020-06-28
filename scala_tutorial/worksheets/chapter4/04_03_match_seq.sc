@@ -27,7 +27,7 @@ for (seq <- Seq(                                                     // <8>
 
 def seqToString2[T](seq: Seq[T]): String = seq match {                // <5>
   //case head +: tail => s"$head +: " + seqToString(tail)              // <6>
-  case head +: tail => s"($head +: ${seqToString2(tail)})"
+  case head +: tail => s"( $head +: ${seqToString2(tail)} )"
   case Nil => "Nil"                                                  // <7>
 }
 for (seq <- Seq(                                                     // <8>
@@ -43,6 +43,7 @@ def listToString[T](list: List[T]): String = list match {
 }
 
 for (l <- List(nonEmptyList, emptyList)) { println(listToString(l)) }
+
 
 val s1 = (1 :: (2 :: (3 :: (4 :: (5 :: (Nil))))))
 

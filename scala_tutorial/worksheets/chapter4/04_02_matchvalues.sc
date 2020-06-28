@@ -12,6 +12,8 @@ for {
   println(str)                                                       // <9>
 }
 
+'abc
+
 
 
 for {

@@ -36,6 +36,7 @@ for (itemCostIndex <- itemsCostsIndices) {
 
  */
 
+
 case class With[A,B](a: A, b: B)
 
 // val fw1 = "Foo" With 1       // Doesn't work
@@ -96,7 +97,7 @@ for (seq <- Seq(nonEmptyList, emptyList, nonEmptyMap.toSeq)) {
 
 // Process pairs
 def windows2[T](seq: Seq[T]): String = seq match {
-  case head1 +: head2 +: tail => s"($head1, $head2), " + windows2(seq.tail)
+  case head1 +: head2 +: tail => s"($head1, $head2), " + windows2(tail)
   case head +: tail => s"($head, _), " + windows2(tail)
   case Nil => "Nil"
 }
